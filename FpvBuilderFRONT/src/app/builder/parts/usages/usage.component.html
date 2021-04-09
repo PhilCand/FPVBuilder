@@ -1,0 +1,13 @@
+<div>
+    <div class="card" *ngFor='let usage of usages'>
+        <div class="card-header">
+          {{usage.Tu_Nom}}
+        </div>
+        <div class="card-body">
+          <!-- <h5 class="card-title">Special title treatment</h5> -->
+          <p class="card-text">{{usage.Tu_Description}}</p>
+          <a class="btn btn-primary" (click)='nextStep(usage)'>Selectionner</a>
+        </div>
+      </div>
+</div>
+

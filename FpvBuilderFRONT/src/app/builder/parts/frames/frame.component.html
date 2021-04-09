@@ -1,0 +1,13 @@
+<div>
+    <div class="card" *ngFor='let frame of frames'>
+        <div class="card-header">
+          {{frame.Fr_Marque}} {{frame.Fr_Modele}}
+        </div>
+        <div class="card-body">
+          <!-- <h5 class="card-title">Special title treatment</h5> -->
+          <p class="card-text">{{frame.Fr_Description}}</p>
+          <p class="card-text">Poids : {{frame.Fr_Poids}}</p>
+          <a class="btn btn-primary" (click)='nextStep()'>Selectionner</a>
+        </div>
+      </div>
+</div>

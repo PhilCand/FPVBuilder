@@ -1,0 +1,17 @@
+<app-timeLine [currentStep]="currentStep" (currentStepOut)="goToStep($event)"></app-timeLine>
+<container-element [ngSwitch]="this.currentStep">
+    <div class="row">
+        <div class="col-2">            
+        </div>
+        <div class="col-8">
+            <app-usage (currentStep)="goToStep($event)" *ngSwitchCase="0"></app-usage>
+            <app-frame (currentStep)="goToStep($event)" *ngSwitchCase="1"></app-frame>
+            <p *ngSwitchCase="2"> test moteur</p>
+        </div>
+        <div class="col-2">
+            <div class="affix">
+                <app-selection class="col col-lg-2" style="position:fixed"></app-selection>
+            </div>
+        </div>
+    </div>
+</container-element>
