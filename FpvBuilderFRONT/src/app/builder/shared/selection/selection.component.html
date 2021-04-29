@@ -2,19 +2,20 @@
     <li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
         <div class="fw-bold">Usage :</div>
-      {{usage.Tu_Nom}}
+        <ng-container *ngIf="build && build.Usage">{{build.Usage.Tu_Nom}}</ng-container> 
       </div>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
-        <div class="fw-bold">Frame :</div>                
+        <div class="fw-bold">Frame :</div>  
+        <ng-container *ngIf='build && build.Frame'>{{build.Frame.Fr_Marque}} {{build.Frame.Fr_Modele}}</ng-container>           
       </div>
-      <span class="badge bg-primary rounded-pill">€</span>
+      <span class="badge bg-primary rounded-pill" 
+      *ngIf='build && build.Frame'>{{build.Frame.Fr_Prix | currency:'EUR':'symbol'}}</span>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
         <div class="fw-bold">Moteur :</div>
-        
       </div>
       <span class="badge bg-primary rounded-pill">€</span>
     </li>
@@ -68,8 +69,8 @@
       </li>
       <li class="list-group-item d-flex justify-content-between align-items-start">
         <div class="ms-2 me-auto">
-          <div class="fw-bold">Prix total :</div>          
+          <div class="fw-bold">Prix total : </div>          
         </div>
-        <span class="badge bg-primary rounded-pill">€</span>
+        <span class="badge bg-primary rounded-pill">{{total | currency:'EUR':'symbol'}}</span>
       </li>
   </ol>

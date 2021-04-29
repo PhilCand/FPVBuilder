@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,12 @@ import { RouterModule } from '@angular/router';
 import { builderComponent } from './builder/builder.component';
 import { FrameComponent } from './builder/parts/frames/frame.component';
 import { SelectionComponent } from './builder/shared/selection/selection.component';
+import { AdminUsagesComponent } from './admin/admin-usages/admin-usages.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import { FormsModule } from '@angular/forms';
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
@@ -20,19 +26,25 @@ import { SelectionComponent } from './builder/shared/selection/selection.compone
     HomeComponent,
     builderComponent,
     FrameComponent,
-    SelectionComponent
+    SelectionComponent,
+    AdminUsagesComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'builder', component: builderComponent}
+      { path: 'builder', component: builderComponent},
+      { path: 'admin', component: AdminHomeComponent},
+      { path: 'admin/usage', component: AdminUsagesComponent}
     ])
   ],
-  providers: [],
+  providers: [SelectionComponent,
+  { provide : LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

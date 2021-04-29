@@ -12,5 +12,6 @@ namespace FpvAPI.Models
         public string Modele { get; set; }
         public decimal Poids { get; set; }
         public string Description { get; set; }
+        public decimal Prix { get; set; }
     }
 }

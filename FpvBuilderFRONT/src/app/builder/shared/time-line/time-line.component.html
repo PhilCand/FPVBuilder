@@ -1,20 +1,21 @@
 <div>
     <ul class="list-group list-group-horizontal d-flex justify-content-center" id="timeLine" #timeLine>
         <!-- <li class="list-group-item active">Usage</li>   -->
-        <li [ngClass]="currentStep == 0 ? 'list-group-item active' : 'list-group-item'">Usage</li>
-        <li [ngClass]="currentStep == 1 ? 'list-group-item active' : 'list-group-item'">Frame</li>
-        <li [ngClass]="currentStep == 2 ? 'list-group-item active' : 'list-group-item'">Moteur</li>
-        <li [ngClass]="currentStep == 3 ? 'list-group-item active' : 'list-group-item'">Num/Analog</li>
-        <li [ngClass]="currentStep == 4 ? 'list-group-item active' : 'list-group-item'">VTX</li>
-        <li [ngClass]="currentStep == 5 ? 'list-group-item active' : 'list-group-item'">FC</li>
-        <li [ngClass]="currentStep == 6 ? 'list-group-item active' : 'list-group-item'">Radio</li>
-        <li [ngClass]="currentStep == 7 ? 'list-group-item active' : 'list-group-item'">Rx</li>
-        <li [ngClass]="currentStep == 8 ? 'list-group-item active' : 'list-group-item'">Antenne Rx</li>
-        <li [ngClass]="currentStep == 9 ? 'list-group-item active' : 'list-group-item'">Action cam</li>
-        <li [ngClass]="currentStep == 10 ? 'list-group-item active' : 'list-group-item'">Accessoires</li>
+        <li [ngClass]="currentStep == 0 ? 'list-group-item list-group-item-dark' : 'list-group-item'">Usage</li>
+        <li [ngClass]="currentStep == 1 ? 'list-group-item list-group-item-dark' : 'list-group-item'">Frame</li>
+        <li [ngClass]="currentStep == 2 ? 'list-group-item list-group-item-dark' : 'list-group-item'">Moteur</li>
+        <li [ngClass]="currentStep == 3 ? 'list-group-item list-group-item-dark' : 'list-group-item'">Num/Analog</li>
+        <li [ngClass]="currentStep == 4 ? 'list-group-item list-group-item-dark' : 'list-group-item'">VTX</li>
+        <li [ngClass]="currentStep == 5 ? 'list-group-item list-group-item-dark' : 'list-group-item'">FC</li>
+        <li [ngClass]="currentStep == 6 ? 'list-group-item list-group-item-dark' : 'list-group-item'">Radio</li>
+        <li [ngClass]="currentStep == 7 ? 'list-group-item list-group-item-dark' : 'list-group-item'">Rx</li>
+        <li [ngClass]="currentStep == 8 ? 'list-group-item list-group-item-dark' : 'list-group-item'">Antenne Rx</li>
+        <li [ngClass]="currentStep == 9 ? 'list-group-item list-group-item-dark' : 'list-group-item'">Action cam</li>
+        <li [ngClass]="currentStep == 10 ? 'list-group-item list-group-item-dark' : 'list-group-item'">Accessoires</li>
       </ul>
 </div>
 <div id="tl-buttons">
-<button type="button" class="btn btn-primary mx-2" (click)='previous()'>Precedent</button>
-<button type="button" class="btn btn-primary mx-2" (click)='next()'>Suivant</button>
+<button type="button" class="btn btn-danger mx-2" (click)='reset()'>Reset</button>
+<button type="button" class="btn btn-secondary mx-2" (click)='previous()'>Precedent</button>
+<button type="button" class="btn btn-secondary mx-2" (click)='next()'>Suivant</button>
 </div>

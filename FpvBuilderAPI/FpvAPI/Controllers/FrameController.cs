@@ -58,6 +58,7 @@ namespace FpvAPI.Controllers
                     command.Parameters.AddWithValue("@Modele", frame.Modele);
                     command.Parameters.AddWithValue("@Poids", frame.Poids);
                     command.Parameters.AddWithValue("@Description", frame.Description);
+                    command.Parameters.AddWithValue("@Prix", frame.Prix);
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
                     reader.Close();
@@ -81,6 +82,7 @@ namespace FpvAPI.Controllers
                     command.Parameters.AddWithValue("@Modele", frame.Modele);
                     command.Parameters.AddWithValue("@Poids", frame.Poids);
                     command.Parameters.AddWithValue("@Description", frame.Description);
+                    command.Parameters.AddWithValue("@Prix", frame.Prix);
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
                     reader.Close();

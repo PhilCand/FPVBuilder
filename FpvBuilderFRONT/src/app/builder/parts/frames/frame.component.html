@@ -1,13 +1,22 @@
+
+<div class="input-group mb-3 col-3 float-right">
+  <button class="btn btn-outline-secondary" type="button" id="button-addon1"
+  (click)="sortByPrice()">Tri par prix</button>
+  <input type="text" class="form-control" placeholder="Filtre" aria-label="Example text with button addon" 
+  [(ngModel)]='listFilter' aria-describedby="button-addon1">
+</div>
+<div class="clearfix"></div>
 <div>
-    <div class="card" *ngFor='let frame of frames'>
+    <div class="card" *ngFor='let frame of filteredFrames'>
         <div class="card-header">
-          {{frame.Fr_Marque}} {{frame.Fr_Modele}}
+          <div class="float-left"> <h3>{{frame.Fr_Marque}} {{frame.Fr_Modele}}</h3></div>
+          <div class="float-right"><h5>{{frame.Fr_Prix | currency:'EUR':'symbol'}}</h5></div>        
         </div>
         <div class="card-body">
           <!-- <h5 class="card-title">Special title treatment</h5> -->
           <p class="card-text">{{frame.Fr_Description}}</p>
-          <p class="card-text">Poids : {{frame.Fr_Poids}}</p>
-          <a class="btn btn-primary" (click)='nextStep()'>Selectionner</a>
+          <p class="card-text">Poids : {{frame.Fr_Poids.toFixed(3) }} g</p>
+          <a class="btn btn-outline-secondary float-right" (click)='nextStep(frame)'>Selectionner</a>
         </div>
       </div>
 </div>

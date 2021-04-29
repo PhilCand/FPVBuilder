@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { IUsage } from '../../parts/usages/usage';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { IBuild } from '../../builder';
+import { builderService } from '../../builder.service';
 
 @Component({
   selector: 'app-selection',
@@ -8,11 +9,33 @@ import { IUsage } from '../../parts/usages/usage';
 })
 export class SelectionComponent implements OnInit {
 
-  constructor() { }
-  usage: Partial<IUsage> = {};
+  constructor(private _builderService: builderService) { }
+  
+  build = <IBuild> {};
+  total: number = 0;
 
   ngOnInit(): void {
-    if (sessionStorage.getItem("usage") != null) this.usage = JSON.parse(sessionStorage.usage)
+    this.buildFromSession();
+    this.buildFromService();
+  }
+
+  calculate(build: IBuild){
+    this.total = 0
+    if (build.Frame){
+      this.total += build.Frame.Fr_Prix;
+    }  
+  }
+
+  buildFromSession(): void{
+    this.build = JSON.parse(sessionStorage.getItem("currentBuild") as any);
+    if (this.build){this.calculate(this.build)}
+  }
+
+  buildFromService(): void{
+    this._builderService.build.subscribe(result => {
+      this.build = result;
+      this.calculate(this.build);
+    });
   }
 
 }

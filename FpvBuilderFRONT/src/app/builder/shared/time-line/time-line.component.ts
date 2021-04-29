@@ -7,6 +7,7 @@ import { Component, ElementRef, EventEmitter, Input, Output} from "@angular/core
     styleUrls: ["./time-line.component.css"]
 })
 export class timeLineComponent{
+ 
     constructor(private elRef:ElementRef) {};
     currentIndex: number = 0;
     @Input() currentStep: number;
@@ -21,6 +22,12 @@ export class timeLineComponent{
         if (this.currentStep > 0) this.currentStep --        
         this.currentStepOut.emit(this.currentStep); 
     }
+
+    reset(): void{
+        sessionStorage.clear();
+        document.location.reload();
+    }
+
 
 
 }
