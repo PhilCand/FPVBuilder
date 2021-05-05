@@ -14,7 +14,6 @@ export class AdminHomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentRoute = this.router.url
-    console.log(this.currentRoute)
   }
 
 }

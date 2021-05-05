@@ -3,13 +3,14 @@ import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators"
 import { IFrame } from "./frame";
-
+import { environment } from "src/environments/environment"
 
 @Injectable({
     providedIn: 'root'
 })
 export class frameService{
-    private usageUrl = 'https://localhost:5001/api/Frame/';
+
+    private usageUrl = environment.apiUrl+'api/Frame/';
 
   constructor(private http: HttpClient){}
 

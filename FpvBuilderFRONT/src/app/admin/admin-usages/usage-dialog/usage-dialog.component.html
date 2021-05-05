@@ -1,0 +1,22 @@
+<h1 mat-dialog-title><strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+    <p>
+        <mat-form-field *ngIf="action != 'Suppression'; else elseTemplate">
+            <input placeholder="{{action}} Nom" matInput [(ngModel)]="local_data.Tu_Nom">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field [style.width.px]=500 *ngIf="action != 'Suppression'">
+            <textarea matInput placeholder="{{action}} Description" matInput [(ngModel)]="local_data.Tu_Description"></textarea>
+        </mat-form-field>
+    </p>
+
+    <ng-template #elseTemplate>
+        Confirmer la suppression <b>{{local_data.Tu_Nom}}</b> ?
+    </ng-template>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="doAction()">{{action}}</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Annuler</button>
+</div>
