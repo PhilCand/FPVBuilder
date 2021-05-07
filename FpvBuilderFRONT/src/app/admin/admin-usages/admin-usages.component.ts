@@ -18,6 +18,7 @@ export class AdminUsagesComponent implements OnInit, OnDestroy {
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
   displayedColumns: string[] = ['nom', 'description', 'action'];
   usages: IUsage[] = [];
+  newUsage: IUsage = {Tu_Id:0, Tu_Nom: "", Tu_Description: ""}
   sub!: Subscription;
 
 
@@ -46,20 +47,28 @@ export class AdminUsagesComponent implements OnInit, OnDestroy {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result.event == 'Ajout') {
-        this.addRowData(result.data);
+        this.createUsage(result.data);
       } else if (result.event == 'Edition') {
-        this.updateRowData(result.data);
+        this.updateUsage(result.data);
       } else if (result.event == 'Suppression') {
         this.deleteUsage(result.data);
       }
     });
   }
 
-  addRowData(row_obj: IUsage) {
-
+  createUsage(usage: IUsage) {
+    this._usageService.createUsage(usage).subscribe(
+      response => {
+        this.getUsages();
+      }
+    )
   }
-  updateRowData(row_obj: IUsage) {
-
+  updateUsage(usage: IUsage) {
+    this._usageService.updateUsage(usage).subscribe(
+      response => {
+        this.getUsages();
+      }
+    )
   }
   deleteUsage(usage: IUsage) {
     this._usageService.deleteUsage(usage.Tu_Id).subscribe(

@@ -27,6 +27,18 @@ deleteUsage(usageId: number)
   );
 }
 
+createUsage(usage: IUsage){
+  return this.http.post(this.usageUrl, usage).pipe(
+    catchError(this.handleError)
+  )
+}
+
+updateUsage(usage: IUsage){
+  return this.http.put(this.usageUrl, usage).pipe(
+    catchError(this.handleError)
+  )
+}
+
  private handleError(err: HttpErrorResponse){
    let errorMessage = '';
    if (err.error instanceof ErrorEvent){

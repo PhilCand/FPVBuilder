@@ -7,8 +7,8 @@ namespace FpvAPI.Models
 {
     public class Usage
     {
-        public int Id { get; set; }
-        public string Nom { get; set; }
-        public string Description { get; set; }
+        public int Tu_Id { get; set; }
+        public string Tu_Nom { get; set; }
+        public string Tu_Description { get; set; }
     }
 }

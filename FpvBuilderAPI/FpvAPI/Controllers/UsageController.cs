@@ -54,8 +54,8 @@ namespace FpvAPI.Controllers
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Connection = connection;
-                    command.Parameters.AddWithValue("@Nom", usage.Nom);
-                    command.Parameters.AddWithValue("@Description", usage.Description);
+                    command.Parameters.AddWithValue("@Nom", usage.Tu_Nom);
+                    command.Parameters.AddWithValue("@Description", usage.Tu_Description);
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
                     reader.Close();
@@ -74,9 +74,9 @@ namespace FpvAPI.Controllers
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Connection = connection;
-                    command.Parameters.AddWithValue("@Id", usage.Id);
-                    command.Parameters.AddWithValue("@Nom", usage.Nom);
-                    command.Parameters.AddWithValue("@Description", usage.Description);
+                    command.Parameters.AddWithValue("@Id", usage.Tu_Id);
+                    command.Parameters.AddWithValue("@Nom", usage.Tu_Nom);
+                    command.Parameters.AddWithValue("@Description", usage.Tu_Description);
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
                     reader.Close();

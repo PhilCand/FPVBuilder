@@ -19,7 +19,7 @@ export class UsageDialogComponent {
     public dialogRef: MatDialogRef<UsageDialogComponent>,
     //@Optional() is used to prevent error if no data is passed
     @Optional() @Inject(MAT_DIALOG_DATA) public data: IFrame) {
-    console.log(data);
+    //console.log(data);
     this.local_data = {...data};
     this.action = this.local_data.Action;
   }
