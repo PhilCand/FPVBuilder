@@ -3,3 +3,11 @@
     margin-right: 15em; */
     margin-top: 2em;
 }
+
+mat-expansion-panel{
+    margin-top: 1rem;
+}
+
+mat-panel-title{
+    font-size: large;
+}

@@ -1,34 +1,56 @@
-import { Component, ElementRef, EventEmitter, Input, Output} from "@angular/core";
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatStepper } from '@angular/material/stepper';
+import { IBuild } from '../../builder';
+import { builderService } from '../../builder.service';
 
 
 @Component({
-    selector: "app-timeLine",
-    templateUrl: "./time-line.component.html",
-    styleUrls: ["./time-line.component.css"]
+  selector: 'app-timeLine',
+  templateUrl: './time-line.component.html',
+  styleUrls: ['./time-line.component.css'],
+  providers: [{
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}
+  }]
 })
-export class timeLineComponent{
- 
-    constructor(private elRef:ElementRef) {};
-    currentIndex: number = 0;
-    @Input() currentStep: number;
-    @Output() currentStepOut = new EventEmitter<number>();
+export class timeLineComponent implements OnInit {
+  isLinear = false;
 
-    next(): void{
-        if (this.currentStep < 10) this.currentStep ++
-        this.currentStepOut.emit(this.currentStep); 
+  @ViewChild('stepper') stepper: MatStepper;
+  currentStep: number = 0;
+  build = <IBuild>{};
+  usageComponent: FormGroup;
+
+  constructor(private _builderService: builderService, private _formBuilder: FormBuilder) { }
+
+  ngOnInit(): void {
+    this._builderService.build.subscribe(result => {
+      this.build = result;
+    }),
+    this.usageComponent = this._formBuilder.group({});    
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.currentStep = sessionStorage.getItem('currentStep') == null ? 0 : parseInt(sessionStorage.getItem('currentStep') as any)
+      this.stepper.selectedIndex = this.currentStep;
+    });
+  }
+
+  selectionChange(stepper: MatStepper) {
+    switch (this.stepper.selectedIndex) {
+      case 0: {
+        this.build = {};
+        break;
+      }
+      case 1: {
+        delete this.build.Frame;
+      }
     }
-
-    previous(): void{   
-        if (this.currentStep > 0) this.currentStep --        
-        this.currentStepOut.emit(this.currentStep); 
-    }
-
-    reset(): void{
-        sessionStorage.clear();
-        document.location.reload();
-    }
-
+    this._builderService.setBuild(this.build)
+    sessionStorage.setItem('currentBuild', JSON.stringify(this.build));
+  }
 
 
 }
-

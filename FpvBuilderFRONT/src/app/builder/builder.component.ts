@@ -19,4 +19,9 @@ export class builderComponent implements OnInit{
         sessionStorage.setItem('currentStep', step.toString()); 
     }
 
+    test(){
+        console.log(sessionStorage.getItem('currentBuild'));
+        console.log(sessionStorage.getItem('currentStep'))
+    }
+
 }

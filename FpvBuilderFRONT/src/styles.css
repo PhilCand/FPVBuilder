@@ -1,7 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+
+
 html body {
     background-color: rgb(255, 255, 255);
 
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.right-aligned-header > .mat-content {
+    justify-content: space-between;
+}
+
+.mat-content > mat-panel-title, .mat-content > mat-panel-description {
+  flex: 0 0 auto;
+}

@@ -18,14 +18,10 @@ import localeFr from '@angular/common/locales/fr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { AdminNavComponent } from './admin/admin-nav/admin-nav.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { UsageDialogComponent } from './admin/admin-usages/usage-dialog/usage-dialog.component';
+import { MaterialModule } from './material/material.module';
+import { NavbarComponent } from './navbar/navbar.component';
 
 registerLocaleData(localeFr);
 
@@ -42,7 +38,8 @@ registerLocaleData(localeFr);
     AdminHomeComponent,
     ConfirmationDialogComponent,
     AdminNavComponent,
-    UsageDialogComponent    
+    UsageDialogComponent,
+    NavbarComponent    
   ],
   imports: [
     BrowserModule,
@@ -51,18 +48,10 @@ registerLocaleData(localeFr);
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatIconModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    MatTableModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatTableModule,
+    MaterialModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'builder', component: builderComponent},
@@ -72,7 +61,6 @@ registerLocaleData(localeFr);
     BrowserAnimationsModule
   ],
   providers: [SelectionComponent,
-  { provide: MatDialogRef, useValue: {} },
   { provide : LOCALE_ID, useValue: 'fr-FR'}],
   
   bootstrap: [AppComponent],

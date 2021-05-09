@@ -1,0 +1,15 @@
+mat-drawer {
+    width: 300px;
+    height: fit-content;
+  }
+
+  mat-drawer-content{
+    height: 900px;
+  }
+
+  /* .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  } */

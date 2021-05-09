@@ -1,76 +1,66 @@
-<ol class="list-group list-group-numbered">
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Usage :</div>
-        <ng-container *ngIf="build && build.Usage">{{build.Usage.Tu_Nom}}</ng-container> 
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Frame :</div>  
-        <ng-container *ngIf='build && build.Frame'>{{build.Frame.Fr_Marque}} {{build.Frame.Fr_Modele}}</ng-container>           
-      </div>
-      <span class="badge bg-primary rounded-pill" 
-      *ngIf='build && build.Frame'>{{build.Frame.Fr_Prix | currency:'EUR':'symbol'}}</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Moteur :</div>
-      </div>
-      <span class="badge bg-primary rounded-pill">€</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">VTX :</div>
-          
-        </div>
-        <span class="badge bg-primary rounded-pill">€</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-start">
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">FC :</div>
-          
-        </div>
-        <span class="badge bg-primary rounded-pill">€</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-start">
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">Radio :</div>
-          
-        </div>
-        <span class="badge bg-primary rounded-pill">€</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-start">
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">Rx :</div>
-          
-        </div>
-        <span class="badge bg-primary rounded-pill">€</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-start">
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">Antenne Rx :</div>
-          
-        </div>
-        <span class="badge bg-primary rounded-pill">€</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-start">
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">Action cam :</div>
-          
-        </div>
-        <span class="badge bg-primary rounded-pill">€</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-start">
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">Accessoires :</div>          
-        </div>
-        <span class="badge bg-primary rounded-pill">€</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-start">
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">Prix total : </div>          
-        </div>
-        <span class="badge bg-primary rounded-pill">{{total | currency:'EUR':'symbol'}}</span>
-      </li>
-  </ol>
+<mat-list>
+  <div mat-subheader>Usage :</div>
+  <mat-list-item>
+    <div mat-line *ngIf="build && build.Usage">{{build.Usage.Tu_Nom}}</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <div mat-subheader>Frame :</div>
+  <mat-list-item>
+    <div mat-line *ngIf='build && build.Frame'>{{build.Frame.Fr_Marque}} {{build.Frame.Fr_Modele}}</div>
+    <div mat-line *ngIf='build && build.Frame'>{{build.Frame.Fr_Prix | currency:'EUR':'symbol'}}</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <div mat-subheader>Moteur :</div>
+  <mat-list-item>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <div mat-subheader>VTX :</div>
+  <mat-list-item>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <div mat-subheader>FC :</div>
+  <mat-list-item>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <div mat-subheader>Radio :</div>
+  <mat-list-item>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <div mat-subheader>Rx :</div>
+  <mat-list-item>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <div mat-subheader>Antenne Rx :</div>
+  <mat-list-item>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <div mat-subheader>Action cam :</div>
+  <mat-list-item>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <div mat-subheader>Accessoires :</div>
+  <mat-list-item>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item>
+    <h2>Prix total : {{total | currency:'EUR':'symbol'}}</h2>
+  </mat-list-item>
+  <mat-divider></mat-divider>

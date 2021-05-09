@@ -1,5 +1,31 @@
+<mat-form-field class="mr-5">
+  <mat-label>Filtre</mat-label>
+  <input matInput placeholder="Marque / modèle" value="Sushi" [(ngModel)]='listFilter'>
+</mat-form-field>
 
-<div class="input-group mb-3 col-3 float-right">
+<button mat-stroked-button color="secondary" (click)="sortByPrice()">Tri par prix</button>
+<div class="clearfix"></div>
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor='let frame of filteredFrames'>
+    <mat-expansion-panel-header class="right-aligned-header">
+      <mat-panel-title>
+        {{frame.Fr_Marque}} {{frame.Fr_Modele}}
+        
+      </mat-panel-title>
+      <mat-panel-description>
+        {{frame.Fr_Prix | currency:'EUR':'symbol'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>{{frame.Fr_Description}}</p>
+    <p>Poids : {{frame.Fr_Poids.toFixed(3) }} g</p>
+    <mat-action-row>
+      <button mat-flat-button matStepperNext color="primary" (click)="nextStep(frame)">Selectionner</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<!-- <div class="input-group mb-3 col-3 float-right">
   <button class="btn btn-outline-secondary" type="button" id="button-addon1"
   (click)="sortByPrice()">Tri par prix</button>
   <input type="text" class="form-control" placeholder="Filtre" aria-label="Example text with button addon" 
@@ -13,10 +39,9 @@
           <div class="float-right"><h5>{{frame.Fr_Prix | currency:'EUR':'symbol'}}</h5></div>        
         </div>
         <div class="card-body">
-          <!-- <h5 class="card-title">Special title treatment</h5> -->
           <p class="card-text">{{frame.Fr_Description}}</p>
           <p class="card-text">Poids : {{frame.Fr_Poids.toFixed(3) }} g</p>
-          <a class="btn btn-outline-secondary float-right" (click)='nextStep(frame)'>Selectionner</a>
+          <button mat-raised-button matStepperNext (click)='nextStep(frame)'>Selectionner</button>
         </div>
       </div>
-</div>
+</div> -->

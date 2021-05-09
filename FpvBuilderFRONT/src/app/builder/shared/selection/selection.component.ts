@@ -7,16 +7,18 @@ import { builderService } from '../../builder.service';
   templateUrl: './selection.component.html',
   styleUrls: ['./selection.component.css']
 })
-export class SelectionComponent implements OnInit {
+export class SelectionComponent {
 
   constructor(private _builderService: builderService) { }
   
   build = <IBuild> {};
   total: number = 0;
 
-  ngOnInit(): void {
-    this.buildFromSession();
-    this.buildFromService();
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.buildFromSession();
+      this.buildFromService();
+    });
   }
 
   calculate(build: IBuild){
@@ -29,12 +31,14 @@ export class SelectionComponent implements OnInit {
   buildFromSession(): void{
     this.build = JSON.parse(sessionStorage.getItem("currentBuild") as any);
     if (this.build){this.calculate(this.build)}
+    console.log(sessionStorage.getItem('currentBuild'))
+    
   }
 
   buildFromService(): void{
     this._builderService.build.subscribe(result => {
       this.build = result;
-      this.calculate(this.build);
+      this.calculate(this.build);      
     });
   }
 
