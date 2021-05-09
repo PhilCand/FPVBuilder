@@ -1,62 +1,46 @@
-<div class="container-fluid mt-5">
-    <div class="row">
-        <app-admin-nav class="col-1"></app-admin-nav>
+<mat-drawer-container>
 
-        <div class="col-10">
-            <button mat-fab class="mb-3" color="accent" (click)="openDialog('Ajout',newUsage)">
-                <mat-icon>add</mat-icon>
-            </button>
+    <mat-drawer #drawer mode="side" opened>
+        <app-admin-nav></app-admin-nav>
+    </mat-drawer>
 
-            <table mat-table [dataSource]="usages" #mytable class="mat-elevation-z8">
+    <mat-drawer-content>
+        <button mat-flat-button (click)="drawer.toggle()">
+            <mat-icon>vertical_split</mat-icon>
+        </button>
 
-                <ng-container matColumnDef="nom">
-                    <th mat-header-cell *matHeaderCellDef> Nom </th>
-                    <td mat-cell *matCellDef="let usage"> {{usage.Tu_Nom}} </td>
-                </ng-container>
+        <button mat-fab class="mb-3" color="accent" (click)="openDialog('Ajout',newUsage)">
+            <mat-icon>add</mat-icon>
+        </button>
 
-                <ng-container matColumnDef="description">
-                    <th mat-header-cell *matHeaderCellDef> Description </th>
-                    <td mat-cell *matCellDef="let usage"> {{usage.Tu_Description}} </td>
-                </ng-container>
+        <table mat-table [dataSource]="usages" #mytable class="mat-elevation-z8">
 
-                <ng-container matColumnDef="action">
-                    <th mat-header-cell *matHeaderCellDef> Action </th>
-                    <td mat-cell *matCellDef="let usage" class="action-link">
-                        <button mat-mini-fab color="accent" (click)="openDialog('Edition',usage)">
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        |
-                        <button mat-mini-fab color="warn" (click)="openDialog('Suppression',usage)">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </ng-container>
+            <ng-container matColumnDef="nom">
+                <th mat-header-cell *matHeaderCellDef> Nom </th>
+                <td mat-cell *matCellDef="let usage"> {{usage.Tu_Nom}} </td>
+            </ng-container>
 
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let usage"> {{usage.Tu_Description}} </td>
+            </ng-container>
 
-                <!-- <table class="table table-hover" id="table"> -->
-                <!-- <thead>
-                    <tr>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Description</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor='let usage of usages'>
-                        <td>{{usage.Tu_Nom}}</td>
-                        <td>{{usage.Tu_Description}}</td>
-                        <td><button mat-mini-fab color="accent">
-                                <mat-icon>edit</mat-icon>
-                            </button>
-                            <button mat-mini-fab color="warn" (click)="openConfirmationDialog(usage.Tu_Id)">
-                                <mat-icon>delete</mat-icon>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody> -->
-            </table>
-        </div>
-    </div>
-</div>
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let usage" class="action-link">
+                    <button mat-mini-fab color="accent" (click)="openDialog('Edition',usage)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    |
+                    <button mat-mini-fab color="warn" (click)="openDialog('Suppression',usage)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+    </mat-drawer-content>
+</mat-drawer-container>

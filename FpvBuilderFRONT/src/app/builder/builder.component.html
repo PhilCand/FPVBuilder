@@ -1,34 +1,17 @@
-
 <!-- <button (click)="test()">test</button> -->
 
 <mat-drawer-container class="example-container">
 
-    <mat-drawer #drawer mode="side" opened><app-selection></app-selection></mat-drawer>
-    
-    <mat-drawer-content>  <div class="example-sidenav-content">
-        <button mat-flat-button (click)="drawer.toggle()">
-            <mat-icon>vertical_split</mat-icon>
-        </button>
-      </div><app-timeLine></app-timeLine></mat-drawer-content>
+    <mat-drawer #drawer mode="side" opened>
+        <app-selection></app-selection>
+    </mat-drawer>
+
+    <mat-drawer-content>
+            <button mat-flat-button (click)="drawer.toggle()">
+                <mat-icon>vertical_split</mat-icon>
+            </button>
+        <app-timeLine></app-timeLine>
+    </mat-drawer-content>
 
 
-  </mat-drawer-container>
-  
-
-<!-- <app-timeLine [currentStep]="currentStep" (currentStepOut)="goToStep($event)"></app-timeLine> -->
-<!-- <container-element [ngSwitch]="this.currentStep">
-    <div class="row">
-        <div class="col-2">            
-        </div>
-        <div class="col-8">
-            <app-usage (currentStep)="goToStep($event)" *ngSwitchCase="0"></app-usage>
-            <app-frame (currentStep)="goToStep($event)" *ngSwitchCase="1"></app-frame>
-            <p *ngSwitchCase="2"> test moteur</p>
-        </div>
-        <div class="col-2">
-            <div class="affix">
-                <app-selection class="col col-lg-2" style="position:fixed"></app-selection>
-            </div>
-        </div>
-    </div>
-</container-element> -->
+</mat-drawer-container>

@@ -18,7 +18,7 @@ export class timeLineComponent implements OnInit {
   isLinear = false;
 
   @ViewChild('stepper') stepper: MatStepper;
-  currentStep: number = 0;
+  // currentStep: number = 0;
   build = <IBuild>{};
   usageComponent: FormGroup;
 
@@ -31,12 +31,12 @@ export class timeLineComponent implements OnInit {
     this.usageComponent = this._formBuilder.group({});    
   }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.currentStep = sessionStorage.getItem('currentStep') == null ? 0 : parseInt(sessionStorage.getItem('currentStep') as any)
-      this.stepper.selectedIndex = this.currentStep;
-    });
-  }
+  // ngAfterViewInit(): void {
+  //   setTimeout(() => {
+  //     this.currentStep = sessionStorage.getItem('currentStep') == null ? 0 : parseInt(sessionStorage.getItem('currentStep') as any)
+  //     this.stepper.selectedIndex = this.currentStep;
+  //   });
+  // }
 
   selectionChange(stepper: MatStepper) {
     switch (this.stepper.selectedIndex) {
@@ -49,7 +49,7 @@ export class timeLineComponent implements OnInit {
       }
     }
     this._builderService.setBuild(this.build)
-    sessionStorage.setItem('currentBuild', JSON.stringify(this.build));
+    // sessionStorage.setItem('currentBuild', JSON.stringify(this.build));
   }
 
 

@@ -16,8 +16,8 @@ export class SelectionComponent {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      this.buildFromSession();
       this.buildFromService();
+      // this.buildFromSession();      
     });
   }
 
@@ -28,12 +28,11 @@ export class SelectionComponent {
     }  
   }
 
-  buildFromSession(): void{
-    this.build = JSON.parse(sessionStorage.getItem("currentBuild") as any);
-    if (this.build){this.calculate(this.build)}
-    console.log(sessionStorage.getItem('currentBuild'))
-    
-  }
+  // buildFromSession(): void{
+  //   this.build = JSON.parse(sessionStorage.getItem("currentBuild") as any);
+  //   if (this.build){this.calculate(this.build)}
+  //   console.log(sessionStorage.getItem('currentBuild'))    
+  // }
 
   buildFromService(): void{
     this._builderService.build.subscribe(result => {

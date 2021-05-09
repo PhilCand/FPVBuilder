@@ -1,12 +1,12 @@
-<ul class="list-group">
-    <a class="list-group-item list-group-item-action" [class.list-group-item-dark]="currentRoute == '/admin/usage'" href="/admin/usage">Usages</a>
-    <a class="list-group-item list-group-item-action" [class.list-group-item-dark]="currentRoute == '/admin/frame'" href="/admin/frame">Frame</a>
-    <a class="list-group-item list-group-item-action" [class.list-group-item-dark]="currentRoute == '/admin/moteur'" href="/admin/moteur">Moteur</a>
-    <a class="list-group-item list-group-item-action" [class.list-group-item-dark]="currentRoute == '/admin/vtx'" href="/admin/vtx">VTX</a>
-    <a class="list-group-item list-group-item-action" [class.list-group-item-dark]="currentRoute == '/admin/fc'" href="/admin/fc">FC</a>
-    <a class="list-group-item list-group-item-action" [class.list-group-item-dark]="currentRoute == '/admin/radio'" href="/admin/radio">Radio</a>
-    <a class="list-group-item list-group-item-action" [class.list-group-item-dark]="currentRoute == '/admin/rx'" href="/admin/rx">Rx</a>
-    <a class="list-group-item list-group-item-action" [class.list-group-item-dark]="currentRoute == '/admin/antenne-rx'" href="/admin/antenne-rx">Antenne VTX</a>
-    <a class="list-group-item list-group-item-action" [class.list-group-item-dark]="currentRoute == '/admin/action-cam'" href="/admin/action-cam">Action cam</a>
-    <a class="list-group-item list-group-item-action" [class.list-group-item-dark]="currentRoute == '/admin/accessoire'" href="/admin/accessoire">Accessoire</a>
-  </ul>
+<mat-selection-list #shoes [multiple]="false">
+    <mat-list-option routerLink='/admin/usage'>Usages</mat-list-option>
+    <mat-list-option routerLink='/admin/frame'>Frame</mat-list-option>
+    <mat-list-option routerLink='/admin/moteur'>Moteur</mat-list-option>
+    <mat-list-option routerLink='/admin/vtx'>VTX</mat-list-option>
+    <mat-list-option routerLink='/admin/fc'>FC</mat-list-option>
+    <mat-list-option routerLink='/admin/radio'>Radio</mat-list-option>
+    <mat-list-option routerLink='/admin/rx'>RX</mat-list-option>
+    <mat-list-option routerLink='/admin/antenne-rx'>Antenne RX</mat-list-option>
+    <mat-list-option routerLink='/admin/action-cam'>Action Cam</mat-list-option>
+    <mat-list-option routerLink='/admin/accessoire'>Accessoires</mat-list-option>    
+  </mat-selection-list>

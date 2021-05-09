@@ -21,7 +21,7 @@ export class UsageComponent implements OnInit, OnDestroy {
   build = <IBuild>{};
   errorMessage: string = "";
   sub!: Subscription;
-  @Output() currentStep = new EventEmitter<number>();
+  // @Output() currentStep = new EventEmitter<number>();
   
 
   ngOnInit(): void {
@@ -41,11 +41,11 @@ export class UsageComponent implements OnInit, OnDestroy {
   }
 
   nextStep(usage: IUsage): void {
-    this.currentStep.emit(1);  
+    // this.currentStep.emit(1);  
     this.build.Usage = usage;    
     this._builderService.setBuild(this.build) 
-    sessionStorage.setItem('currentBuild', JSON.stringify(this.build)); 
-    sessionStorage.setItem('currentStep', JSON.stringify(1));       
+    // sessionStorage.setItem('currentBuild', JSON.stringify(this.build)); 
+    // sessionStorage.setItem('currentStep', JSON.stringify(1));       
   }
 
   

@@ -22,7 +22,7 @@ export class FrameComponent implements OnInit, OnDestroy {
   build = <IBuild>{};
   errorMessage: string = "";
   sub!: Subscription;
-  @Output() currentStep = new EventEmitter<number>();
+  // @Output() currentStep = new EventEmitter<number>();
 
 
   get listFilter(): string {
@@ -53,7 +53,6 @@ export class FrameComponent implements OnInit, OnDestroy {
       this._builderService.build.subscribe(result => {
         this.build = result;
       })
-      //this.resetFrame();
   };
 
   ngOnDestroy(): void {
@@ -61,17 +60,11 @@ export class FrameComponent implements OnInit, OnDestroy {
   }
 
   nextStep(frame: IFrame): void {
-    this.currentStep.emit(2);
+    // this.currentStep.emit(2);
     this.build.Frame = frame;
     this._builderService.setBuild(this.build)
-    sessionStorage.setItem('currentBuild', JSON.stringify(this.build));
-    sessionStorage.setItem('currentStep', JSON.stringify(2));  
-  }
-
-  resetFrame(): void {
-    delete this.build.Frame
-    this._builderService.setBuild(this.build)
-    sessionStorage.setItem('currentBuild', JSON.stringify(this.build));
+    // sessionStorage.setItem('currentBuild', JSON.stringify(this.build));
+    // sessionStorage.setItem('currentStep', JSON.stringify(2));  
   }
 
   sortByPrice() {

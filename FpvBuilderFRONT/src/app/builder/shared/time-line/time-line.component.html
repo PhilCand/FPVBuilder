@@ -1,5 +1,6 @@
-<mat-horizontal-stepper [linear]="isLinear" #stepper (animationDone)="selectionChange(stepper)">
+<button mat-button color="warn" (click)="stepper.reset()">Reset</button>
 
+<mat-horizontal-stepper [linear]="isLinear" #stepper (animationDone)="selectionChange(stepper)">
   <mat-step [stepControl]="usageComponent">
     <ng-template matStepLabel>Usage</ng-template>
     <app-usage></app-usage>

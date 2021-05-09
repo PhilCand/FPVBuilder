@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IBuild } from '../builder/builder';
-import { builderService } from '../builder/builder.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,15 +7,11 @@ import { builderService } from '../builder/builder.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private _builderService: builderService) { }
-  build = <IBuild>{};
+  constructor() { }
+
   ngOnInit(): void {
   }
 
-  resetBuild() {
-    this._builderService.setBuild(this.build)
-    sessionStorage.setItem('currentBuild', JSON.stringify(this.build));
-    sessionStorage.setItem('currentStep', JSON.stringify(0));
-  }
+
 
 }
